@@ -1,0 +1,28 @@
+model,true,predicted,count
+Logistic,setosa,setosa,10
+Logistic,setosa,versicolor,0
+Logistic,setosa,virginica,0
+Logistic,versicolor,setosa,0
+Logistic,versicolor,versicolor,10
+Logistic,versicolor,virginica,0
+Logistic,virginica,setosa,0
+Logistic,virginica,versicolor,0
+Logistic,virginica,virginica,10
+Gaussian NB,setosa,setosa,10
+Gaussian NB,setosa,versicolor,0
+Gaussian NB,setosa,virginica,0
+Gaussian NB,versicolor,setosa,0
+Gaussian NB,versicolor,versicolor,10
+Gaussian NB,versicolor,virginica,0
+Gaussian NB,virginica,setosa,0
+Gaussian NB,virginica,versicolor,1
+Gaussian NB,virginica,virginica,9
+Softmax,setosa,setosa,10
+Softmax,setosa,versicolor,0
+Softmax,setosa,virginica,0
+Softmax,versicolor,setosa,0
+Softmax,versicolor,versicolor,10
+Softmax,versicolor,virginica,0
+Softmax,virginica,setosa,0
+Softmax,virginica,versicolor,0
+Softmax,virginica,virginica,10

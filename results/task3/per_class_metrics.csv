@@ -1,0 +1,10 @@
+model,class_name,precision,recall,f1,support
+Logistic,setosa,1.0,1.0,1.0,10
+Logistic,versicolor,1.0,1.0,1.0,10
+Logistic,virginica,1.0,1.0,1.0,10
+Gaussian NB,setosa,1.0,1.0,1.0,10
+Gaussian NB,versicolor,0.9090909090909091,1.0,0.9523809523809523,10
+Gaussian NB,virginica,1.0,0.9,0.9473684210526316,10
+Softmax,setosa,1.0,1.0,1.0,10
+Softmax,versicolor,1.0,1.0,1.0,10
+Softmax,virginica,1.0,1.0,1.0,10

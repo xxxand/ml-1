@@ -1,0 +1,10 @@
+model,class_name,auc
+Logistic,setosa,1.0
+Logistic,versicolor,1.0
+Logistic,virginica,1.0
+Gaussian NB,setosa,1.0
+Gaussian NB,versicolor,0.995
+Gaussian NB,virginica,0.995
+Softmax,setosa,1.0
+Softmax,versicolor,1.0
+Softmax,virginica,1.0

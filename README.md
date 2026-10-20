@@ -84,3 +84,41 @@ task2/
 - `predictions.png`、`residuals.png`：回归结果与残差
 - `alpha_cv.png`、`alpha_generalization.png`、`coefficient_paths.png`、`coefficient_comparison.png`：参数与正则化分析
 - `summary.md`：本次运行的结果摘要
+
+## 分类任务：Iris
+
+使用 `datasets/iris.csv`，根据花萼、花瓣的四个数值特征预测三个鸢尾花类别。
+
+- 数据划分：按类别分层留出 80% 训练、20% 测试，随机种子 42。
+- 特征处理：按训练集均值/标准差标准化。
+- Logistic 回归：手动实现 One-vs-Rest 二分类器，全批量梯度下降。
+- 高斯朴素贝叶斯：手动实现，使用方差平滑参数。
+- Softmax 回归（选做）：手动实现多分类交叉熵和梯度下降。
+- 参数选择：训练集内 5 折分层交叉验证，比较学习率、L2 正则强度和方差平滑。
+- 评价指标：Accuracy、Precision、Recall、F1，以及 One-vs-Rest ROC/AUC。
+
+### 运行
+
+```bash
+python -m task3.main
+```
+
+### 代码结构
+
+```
+task3/
+├── data.py        # 读取、分层划分、类别编码、标准化
+├── models.py      # 手动实现的 Logistic / GaussianNB / Softmax
+├── metrics.py     # 准确率、混淆矩阵、P/R/F1、ROC/AUC
+├── validation.py  # 分层 K 折交叉验证与参数选择
+├── plots.py       # 决策区域、混淆矩阵、ROC、参数曲线等图
+└── main.py        # 实验主流程
+```
+
+运行后结果写入 `results/task3/`：
+
+- `metrics.csv`、`per_class_metrics.csv`：整体与每类指标
+- `cv_results.csv`、`cv_*.csv`：交叉验证参数结果
+- `roc_auc.csv`、`confusion_matrices.csv`：AUC 与混淆矩阵数据
+- `decision_boundaries.png`、`confusion_matrices.png`、`roc_curves.png`、`parameter_selection.png`、`metrics_comparison.png`：可视化结果
+- `summary.md`：本次运行的结果摘要

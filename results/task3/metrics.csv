@@ -1,0 +1,4 @@
+model,accuracy,precision_macro,recall_macro,f1_macro
+Logistic,1.0,1.0,1.0,1.0
+Gaussian NB,0.9666666666666667,0.9696969696969697,0.9666666666666667,0.9665831244778613
+Softmax,1.0,1.0,1.0,1.0
