@@ -42,3 +42,43 @@ task1/
 - `predictions.png`、`residuals.png`：回归结果与残差
 - `alpha_cv.png`、`alpha_generalization.png`、`coefficient_paths.png`、`coefficient_comparison.png`：正则化分析
 - `summary.md`：本次运行的结果摘要
+
+## 回归任务二：California 房价预测
+
+使用 `datasets/housing.csv`，以 `median_house_value` 为目标变量，手动实现岭回归与套索回归。
+
+- 缺失值：`total_bedrooms` 用训练集中位数填补。
+- 特征处理：`ocean_proximity` 做 one-hot 编码，并构造 `rooms_per_household`、`bedrooms_per_room`、`population_per_household` 三个比例特征。
+- 数据划分：留出法，训练集 80%、测试集 20%，按目标值五分位分层，随机种子 42。
+- 标准化：特征和目标均按训练集均值/标准差缩放；评价时预测值还原为美元。
+- 岭回归：闭式解，截距不参与正则化。
+- 套索回归：坐标下降 + 软阈值，截距不参与正则化。
+- 参数选择：训练集内 5 折交叉验证，分别选择两种模型的正则参数。
+- 评价指标：MSE、MAE、RMSE、R²。
+
+### 运行
+
+```bash
+python -m task2.main
+```
+
+### 代码结构
+
+```
+task2/
+├── data.py        # 读取、缺失值、one-hot、比例特征、分层划分、标准化
+├── models.py      # 手动实现的 RidgeRegression / LassoRegression
+├── metrics.py     # MSE / MAE / RMSE / R²
+├── validation.py  # K 折划分与两种模型的 alpha 交叉验证
+├── plots.py       # 预测值、残差、alpha 曲线、系数路径等图
+└── main.py        # 实验主流程
+```
+
+运行后结果写入 `results/task2/`：
+
+- `metrics.csv`：训练集/测试集指标
+- `alpha_cv.csv`、`alpha_metrics.csv`：交叉验证与不同 alpha 的误差数据
+- `coefficients.csv`：两种模型在选定 alpha 下的系数
+- `predictions.png`、`residuals.png`：回归结果与残差
+- `alpha_cv.png`、`alpha_generalization.png`、`coefficient_paths.png`、`coefficient_comparison.png`：参数与正则化分析
+- `summary.md`：本次运行的结果摘要
