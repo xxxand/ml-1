@@ -47,6 +47,8 @@ task1/
 
 使用 `datasets/housing.csv`，以 `median_house_value` 为目标变量，手动实现岭回归与套索回归。
 
+零基础概念与代码讲解见 [`guide_2.md`](guide_2.md)。
+
 - 缺失值：`total_bedrooms` 用训练集中位数填补。
 - 特征处理：`ocean_proximity` 做 one-hot 编码，并构造 `rooms_per_household`、`bedrooms_per_room`、`population_per_household` 三个比例特征。
 - 数据划分：留出法，训练集 80%、测试集 20%，按目标值五分位分层，随机种子 42。
